@@ -221,3 +221,99 @@ This project conducts a security assessment and audit in line with the ACSC Esse
 #### 9. Completion Message
 - These commands print messages to the terminal indicating that the admin privileges checks have been completed and the results have been saved to the report file.
 
+### Patch Operating System (`06-patch-os.sh`)
+
+#### 1. Shebang Line
+- This line specifies that the script should be run using the Bash shell.
+
+#### 2. Create Report Header
+- This command creates a header for the report and saves it in `reports/06-patch-os-report.md`.
+- `echo` prints the header text.
+- `| tee` redirects the output to both the terminal and the specified file.
+
+#### 3. Search for `update` in Lynis Log
+- The first command prints a subheader indicating that the script is checking for update information.
+  - `| tee -a` appends this text to the report file.
+- The second command searches for occurrences of the term `update` in the Lynis log, which might indicate update-related actions or configurations.
+  - `grep -i "update"`: Searches for the term `update` (case-insensitive) in `/var/log/lynis.log`.
+  - `>> reports/06-patch-os-report.md`: Appends the results to `reports/06-patch-os-report.md`.
+
+#### 4. Search for `patch` in Lynis Log
+- The first command prints a subheader indicating that the script is checking for patch information.
+  - `| tee -a` appends this text to the report file.
+- The second command searches for occurrences of the term `patch` in the Lynis log, which might indicate patch-related actions or configurations.
+  - `grep -i "patch"`: Searches for the term `patch` (case-insensitive) in `/var/log/lynis.log`.
+  - `>> reports/06-patch-os-report.md`: Appends the results to `reports/06-patch-os-report.md`.
+
+#### 5. Check OS Patches
+- The first command prints a subheader indicating that the script is checking for OS patches.
+  - `| tee -a` appends this text to the report file.
+- The second command updates the package lists and upgrades all upgradable packages.
+  - `sudo apt update`: Updates the local package index.
+  - `&&`: Ensures the next command runs only if `sudo apt update` is successful.
+  - `sudo apt upgrade -y`: Upgrades all upgradable packages without prompting for confirmation.
+  - `>> reports/06-patch-os-report.md`: Appends the output to `reports/06-patch-os-report.md`.
+
+#### 6. List Upgradable Packages
+- The first command prints a subheader indicating that the script is checking for upgraded OS patches.
+  - `| tee -a` appends this text to the report file.
+- The second command lists all packages that can be upgraded.
+  - `upgraded_packages=$(apt list --upgradable)`: Assigns the list of `upgradable packages` to the upgraded_packages variable.
+  - `>> reports/06-patch-os-report.md`: Appends the results to `reports/06-patch-os-report.md`.
+
+#### 7. Completion Message
+- These commands print messages to the terminal indicating that the patch operating system checks have been completed and the results have been saved to the report file.
+
+### Multi-factor Authentication (`07-mfa.sh`)
+
+#### 1. Shebang Line
+- This line specifies that the script should be run using the Bash shell.
+
+#### 2. Create Report Header
+- This command creates a header for the report and saves it in `reports/07-mfa-report.md`.
+- `echo` prints the header text.
+- `| tee` redirects the output to both the terminal and the specified file.
+
+#### 3. Search for `authentication` in SSH Configuration
+- The first command prints a subheader indicating that the script is checking the SSH configuration file for MFA settings.
+  - `| tee -a` appends this text to the report file.
+- The second command searches for occurrences of the term `authentication` in the SSH daemon configuration file, which might indicate MFA-related settings.
+  - `grep -i "authentication"`: Searches for the term `authentication` (case-insensitive) in `/etc/ssh/sshd_config`.
+  - `>> reports/07-mfa-report.md`: Appends the results to `reports/07-mfa-report.md`.
+
+#### 4. Search for `authentication` in Lynis Log
+- The first command prints a subheader indicating that the script is filtering Lynis output for MFA settings.
+  - `| tee -a` appends this text to the report file.
+- The second command searches for occurrences of the term `authentication` in the Lynis log, which might indicate authentication-related actions or configurations.
+  - `grep -i "authentication"`: Searches for the term `authentication` (case-insensitive) in `/var/log/lynis.log`.
+  - `>> reports/07-mfa-report.md`: Appends the results to `reports/07-mfa-report.md`.
+
+#### 5. Completion Message
+- These commands print messages to the terminal indicating that the multi-factor authentication checks have been completed and the results have been saved to the report file.
+
+### Daily Backups (`08-backups.sh`)
+
+#### 1. Shebang Line
+- This line specifies that the script should be run using the Bash shell.
+
+#### 2. Create Report Header
+- This command creates a header for the report and saves it in `reports/08-backups-report.md`.
+- `echo` prints the header text.
+- `| tee` redirects the output to both the terminal and the specified file.
+
+#### 3. Search for `backup` in Lynis Log
+- The first command prints a subheader indicating that the script is checking for backup-related information.
+  - `| tee -a` appends this text to the report file.
+- The second command searches for occurrences of the term `backup` in the Lynis log, which might indicate backup-related actions or configurations.
+  - `grep -i "backup"`: Searches for the term "backup" (case-insensitive) in `/var/log/lynis.log`.
+  - `>> reports/08-backups-report.md`: Appends the results to `reports/08-backups-report.md`.
+
+#### 4. List Contents of `/var/backups` Directory
+- The first command prints a subheader indicating that the script is checking for regular backups.
+  - `| tee -a` appends this text to the report file.
+- The second command lists the contents of the `/var/backups` directory to check for existing backups.
+  - `ls /var/backups/`: Lists the files and directories in `/var/backups`.
+  - `>> reports/08-backups-report.md`: Appends the output to `reports/08-backups-report.md`.
+
+#### 5. Completion Message
+- These commands print messages to the terminal indicating that the daily backup checks have been completed and the results have been saved to the report file.
