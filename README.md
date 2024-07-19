@@ -123,7 +123,7 @@ sudo ./scripts/08-backups.sh
 
 ## Check the Results
 Check the reports in the `reports` directory. Each script has generated a report as below: <br><br>
-![Screenshot 2024-07-19 030021](https://github.com/user-attachments/assets/0b259258-7d28-4d70-8547-e2061a8d4a43)
+![Screenshot 2024-07-19 125208](https://github.com/user-attachments/assets/3364f85d-c34f-458f-81b2-82b18d6b5fb3)
 
 ## Project Structure
 ```
