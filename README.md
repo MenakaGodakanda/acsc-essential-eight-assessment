@@ -46,12 +46,16 @@ chmod +x scripts/*.sh
 ```bash
 sudo lynis audit system
 ```
+![Screenshot 2024-07-19 120929](https://github.com/user-attachments/assets/9108afdb-3462-484c-9150-8d6d6046c4a5)
+![Screenshot 2024-07-19 121015](https://github.com/user-attachments/assets/2254aa6b-d532-42d7-8217-522d8e28d402)
 
 - Verify the Lynis report is saved:
 ```bash
 sudo cat /var/log/lynis.log
 sudo cat /var/log/lynis-report.dat
 ```
+![Screenshot 2024-07-19 121131](https://github.com/user-attachments/assets/195ae103-df3b-45dd-9b6a-d32afbb70b52)
+![Screenshot 2024-07-19 121207](https://github.com/user-attachments/assets/6e9e28de-2829-4036-8764-f1f6e41a766d)
 
 The report is saved in the `/var/log/lynis.log` file and a more detailed report is in `/var/log/lynis-report.dat`.
 
@@ -64,51 +68,60 @@ The `01-application-control.sh` script checks for unauthorized applications. Run
 ```bash
 sudo ./scripts/01-application-control.sh
 ```
+![Screenshot 2024-07-19 121400](https://github.com/user-attachments/assets/5b56e3ac-83d8-4408-b4d8-851c0f96d5a8)
 
 ### 02. Patch Applications:
 The `02-patch-applications.sh` script checks if applications are patched. Run the script:
 ```bash
 sudo ./scripts/02-patch-applications.sh
 ```
+![Screenshot 2024-07-19 123404](https://github.com/user-attachments/assets/a1de3a86-0f5a-45fa-bf00-d0b73ae02676)
 
 ### 03. Microsoft Office Macro Settings:
 While Microsoft Office isn't typically on Linux, the script simulates checking LibreOffice macro settings. The `03-macro-settings.sh` script checks for macro settings. Run the script:
 ```bash
 sudo ./scripts/03-macro-settings.sh
 ```
+![Screenshot 2024-07-19 121407](https://github.com/user-attachments/assets/d114699e-86b3-4103-a0d6-647374a98fbc)
 
 ### 04. User Application Hardening:
 The `04-user-app-hardening.sh` script checks secure configurations. Run the script:
 ```bash
 sudo ./scripts/04-user-app-hardening.sh
 ```
+![Screenshot 2024-07-19 121422](https://github.com/user-attachments/assets/87e00da4-f8b6-4a9f-8969-253de57611b7)
 
 ### 05. Restrict Administrative Privileges
 The `05-admin-privileges.sh` script checks for users with administrative privileges. Run the script:
 ```bash
 sudo ./scripts/05-admin-privileges.sh
 ```
+![Screenshot 2024-07-19 121442](https://github.com/user-attachments/assets/3a0bf3e9-9c5a-4bd8-bce1-c181ab2020e3)
 
 ### 06. Patch Operating Systems
 The `06-patch-os.sh` script checks the OS is patched. Run the script:
 ```bash
 sudo ./scripts/06-patch-os.sh
 ```
+![Screenshot 2024-07-19 121504](https://github.com/user-attachments/assets/58e27a81-7962-41f3-8227-6488d1dede8d)
 
 ### 07. Multi-Factor Authentication:
 The `07-mfa.sh` script checks if MFA is enabled. Run the script:
 ```bash
 sudo ./scripts/07-mfa.sh
 ```
+![Screenshot 2024-07-19 121525](https://github.com/user-attachments/assets/262f00fb-e90f-4115-b0c4-e778e4879ec5)
 
 ### 08. Regular Backups:
 The `08-backups.sh` script checks for the existence of regular backups. Run the script:
 ```bash
 sudo ./scripts/08-backups.sh
 ```
+![Screenshot 2024-07-19 121538](https://github.com/user-attachments/assets/5c94bea6-3efb-4e9c-b069-ecd1cb8381a3)
 
 ## Check the Results
 Check the reports in the `reports` directory. Each script has generated a report as below: <br><br>
+![Screenshot 2024-07-19 030021](https://github.com/user-attachments/assets/0b259258-7d28-4d70-8547-e2061a8d4a43)
 
 ## Project Structure
 ```
