@@ -3,7 +3,7 @@
 This project conducts a security assessment and audit in line with the ACSC Essential Eight using open-source tools on Ubuntu.
 
 ## Overview
-<img width="1359" alt="Screenshot 2024-07-19 at 3 17 30 AM" src="https://github.com/user-attachments/assets/f89e1ead-cf8a-492d-adca-50f07d2b144a">
+<img width="1359" alt="Screenshot 2024-07-19 at 12 44 44 PM" src="https://github.com/user-attachments/assets/ac9435da-0bbc-48f3-9799-1fce3a76d7c7">
 
 ### Explanation:
 
@@ -25,12 +25,12 @@ cd acsc-essential-eight-assessment
 ```
 
 ### 2. Install Tools:
-- **Lynis**: Lynis is a powerful, open-source security auditing tool for Unix-based systems, including Linux and macOS. It helps system administrators and security professionals conduct thorough security assessments and compliance checks on their systems. Lynis performs in-depth scans, checking system configurations, installed software, and available security measures, providing actionable recommendations to improve security:
+- **Lynis**: Lynis is a powerful, open-source security auditing tool for Unix-based systems, including Linux and macOS. It helps system administrators and security professionals conduct thorough security assessments and compliance checks on their systems. Lynis performs in-depth scans, checking system configurations, installed software, and available security measures, providing actionable recommendations to improve security. Install Lynis:
     ```bash
     sudo apt install lynis -y
     ```
 
-- **Apparmor**: AppArmor (Application Armor) is a Linux security module that provides mandatory access control (MAC) to enforce restrictions on applications, confining them to limited sets of resources. AppArmor uses profiles to define the permissions and capabilities of individual programs, enhancing system security by preventing unauthorized access:
+- **Apparmor**: AppArmor (Application Armor) is a Linux security module that provides mandatory access control (MAC) to enforce restrictions on applications, confining them to limited sets of resources. AppArmor uses profiles to define the permissions and capabilities of individual programs, enhancing system security by preventing unauthorized access. Install Apparmor:
     ```bash
     sudo apt install apparmor -y
     ```
@@ -50,14 +50,16 @@ sudo lynis audit system
 ![Screenshot 2024-07-19 121015](https://github.com/user-attachments/assets/2254aa6b-d532-42d7-8217-522d8e28d402)
 
 - Verify the Lynis report is saved:
+The report is saved in the `/var/log/lynis.log` file and a more detailed report is in `/var/log/lynis-report.dat`.
 ```bash
 sudo cat /var/log/lynis.log
-sudo cat /var/log/lynis-report.dat
 ```
 ![Screenshot 2024-07-19 121131](https://github.com/user-attachments/assets/195ae103-df3b-45dd-9b6a-d32afbb70b52)
-![Screenshot 2024-07-19 121207](https://github.com/user-attachments/assets/6e9e28de-2829-4036-8764-f1f6e41a766d)
 
-The report is saved in the `/var/log/lynis.log` file and a more detailed report is in `/var/log/lynis-report.dat`.
+```bash
+sudo cat /var/log/lynis-report.dat
+```
+![Screenshot 2024-07-19 121207](https://github.com/user-attachments/assets/6e9e28de-2829-4036-8764-f1f6e41a766d)
 
 ## Usage
 
@@ -78,7 +80,7 @@ sudo ./scripts/02-patch-applications.sh
 ![Screenshot 2024-07-19 123404](https://github.com/user-attachments/assets/a1de3a86-0f5a-45fa-bf00-d0b73ae02676)
 
 ### 03. Microsoft Office Macro Settings:
-While Microsoft Office isn't typically on Linux, the script simulates checking LibreOffice macro settings. The `03-macro-settings.sh` script checks for macro settings. Run the script:
+While Microsoft Office isn't typically on Linux, the `03-macro-settings.sh` script simulates checking LibreOffice macro settings. Run the script:
 ```bash
 sudo ./scripts/03-macro-settings.sh
 ```
