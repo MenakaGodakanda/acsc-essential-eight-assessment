@@ -1,6 +1,7 @@
 # ACSC Essential Eight Security Assessment
 
-This project conducts a security assessment and audit in line with the ACSC Essential Eight using open-source tools on Ubuntu.
+This project conducts a security assessment and audit in line with the ACSC Essential Eight using open-source tools on Ubuntu.<br>
+<a href="https://github.com/MenakaGodakanda/acsc-essential-eight-assessment/blob/main/Project_Description.md">Project Description</a>
 
 ## Overview
 <img width="1359" alt="Screenshot 2024-07-19 at 12 44 44 PM" src="https://github.com/user-attachments/assets/ac9435da-0bbc-48f3-9799-1fce3a76d7c7">
