@@ -8,14 +8,71 @@ This project conducts a security assessment and audit in line with the ACSC Esse
 
 ### Explanation:
 
-1. **Application Control**: Prevent unapproved and malicious applications from executing.
-2. **Patch Applications**: Mitigate vulnerabilities by keeping applications up to date.
-3. **Configure Microsoft Office Macro Settings**: Prevent the execution of malicious macros.
-4. **User Application Hardening**: Harden user applications to reduce vulnerabilities.
-5. **Restrict Administrative Privileges**: Minimize the risk associated with privileged accounts.
-6. **Patch Operating Systems**: Mitigate vulnerabilities by keeping the operating system up to date.
-7. **Multi-Factor Authentication**: Strengthen user authentication by implementing multi-factor authentication (MFA).
-8. **Regular Backups**: Ensure data can be recovered in case of incidents like ransomware.
+#### 01. Application Control
+- Prevent unapproved and malicious applications from executing.
+- `01-application-control.sh`:
+    - Check for unauthorized applications
+    - Check the status of unauthorized applications
+The output of the `01-application-control.sh` script is saved in the results directory as `01-application-control-report.md`.
+
+#### 02. Patch Applications
+- Mitigate vulnerabilities by keeping applications up to date.
+- `02-patch-applications.sh`:
+    - Check for application patches
+    - Check for available updates
+    - Review installed packages and updates
+- The output of the `02-patch-applications.sh` script is saved in the results directory as `02-patch-applications-report.md`.
+
+#### 03. Configure Microsoft Office Macro Settings
+- Prevent the execution of malicious macros.
+- `03-macro-settings.sh`:
+    - Check for `LibreOffice` macro settings
+- The output of the `03-macro-settings.sh` script is saved in the results directory as `03-macro-settings-report.md`.
+
+#### 04. User Application Hardening
+- Harden user applications to reduce vulnerabilities.
+- `04-user-app-hardening.sh`:
+    - Check password quality configuration
+    - Check file permissions of `/etc/passwd`
+    - Check file permissions of `/etc/shadow`
+    - Check for hardening settings in `limits.conf`
+    - Check for hardening recommendations in `Lynis Report`
+- The output of the `04-user-app-hardening.sh` script is saved in the results directory as `04-user-app-hardening-report.md`.
+
+#### 05. Restrict Administrative Privileges
+- Minimize the risk associated with privileged accounts.
+- `05-admin-privileges.sh`:
+    - Search for sudo in `Lynis Log`
+    - Search for admin in `Lynis Log`
+    - Search for privilege in `Lynis Log`
+    - Search for user in `Lynis Log`
+    - Extract members of `sudo` group
+    - List members of `sudo` group
+- The output of the `05-admin-privileges.sh` script is saved in the results directory as `05-admin-privileges-report.md`.
+
+#### 06. Patch Operating Systems
+- Mitigate vulnerabilities by keeping the operating system up to date.
+- `06-patch-os.sh`:
+    - Search for update in `Lynis Log`
+    - Search for patch in `Lynis Log`
+    - Check OS patches
+    - List upgradable packages
+- The output of the `06-patch-os.sh` script is saved in the results directory as `06-patch-os-report.md`.
+
+#### 07. Multi-Factor Authentication
+- Strengthen user authentication by implementing multi-factor authentication (MFA).
+- `07-mfa.sh`:
+    - Search for authentication in SSH Configuration
+    - Search for authentication in `Lynis Log`
+- The output of the `07-mfa.sh` script is saved in the results directory as `07-mfa-report.md`.
+
+#### 08. Regular Backups
+- Ensure data can be recovered in case of incidents like ransomware.
+- `08-backups.sh`:
+    - Search for backup in `Lynis Log`
+    - List contents of `/var/backups` Directory
+- The output of the `08-backups.sh` script is saved in the results directory as `08-backups-report.md`.
+
 
 ## Setting Up the Project
 
